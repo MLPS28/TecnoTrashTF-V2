@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>Busqueda de Direcciones</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="//code.jquery.com/jquery-1.11.1.min.js"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container-fluid">
+    		<div class="row clearfix">
+    			<h1 class="btn btn-primary btn-md left-block">Busquedas</h1>
+    			<form th:action="@{/direccion/buscar}" method="post" th:object="${direccion}">
+    			<div class="form-group">
+    			<div class="col-sm-12">
+    				<input type="text" class="form-control" th:field="*{NDireccion}" id="nombre" placeholder="Ingrese el distrito que desea buscar">
+    				</input>
+    				
+    			<div align="left">
+    				<button type="submit" class="btn btn-danger">Buscar</button>
+    				<a href="/direccion/listar" class="btn btn-danger">Cancelar</a>
+    			</div>
+    			</div>	    				
+    			</div>
+    		</form>
+    		</div>
+    
+    	
+	    	<hr class="sidebar-divider">
+	    	<table class="table table-bordered table-hover table-striped" id="tab_logic">
+	    						<thead>
+	    							<tr>
+	    								<th class="text-center">DIRECCION</th>
+    									<th class="text-center">NUMERO CALLE</th>
+    									<th class="text-center">DISTRITO</th>
+    									<th class="text-center">TIPO DE VIA</th>
+    									<th class="text-center">OPERACION</th>
+    									<th class="text-center">OPERACION</th>
+    								
+	    							</tr>
+	    						</thead>
+	    						<tbody>
+	    							<tr th:each="d: ${listaDirecciones}">   <!-- th:each es un for-->
+	    								<td th:text="${d.CDireccion}"></td>
+	    								<td th:text="${d.NDireccion}"></td>
+	    								<td th:text="${d.NumDireccion}"></td>
+	    								<td th:text="${d.distrito.NDistrito}"></td>
+	    								<td th:text="${d.tipovia.NTipoVia}"></td>
+	
+	    							</tr>
+	    						</tbody>
+	    					</table>
+	    	<p th:text="${mensaje}" class="form-text text-dark"></p>
+	    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>Usuario</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/distrito.js}"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container">
+    		<form th:action="@{/usuario/registrar}" method="post" th:object="${usuario}">
+    			<div class="form-group">
+    				<label for="CUsuario">ID DEL USUARIO:</label>
+    				<input type="text" class="form-control" th:field="*{CUsuario}"></input>
+    				
+    				<div class="form-group">
+    					<label for="nombre">NOMBRE:</label>
+    					<input type="text" class="form-control" th:field="*{NUsuario}" id="nombre"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('NUsuario')}" 
+								th:errors="*{NUsuario}">
+						</div>
+    					
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="DNI">DNI:</label>
+    					<input type="text" class="form-control" th:field="*{NDNI}" id="DNI"></input>
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('NDNI')}" 
+								th:errors="*{NDNI}">
+						</div>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="email">EMAIL:</label>
+    					<input type="text" class="form-control" th:field="*{NEmail}" id="email"></input>
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('NEmail')}" 
+								th:errors="*{NEmail}">
+						</div>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="puntos">PUNTOS:</label>
+    					<input type="text" class="form-control" th:field="*{QPuntos}" id="puntos"></input>
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('QPuntos')}" 
+								th:errors="*{QPuntos}">
+						</div>
+    				</div>
+    				
+    			</div>
+    			<button type="submit" class="btn btn-primary">Aceptar</button>
+    			<a href="/usuario/listar" class="btn btn-danger">Cancelar</a>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

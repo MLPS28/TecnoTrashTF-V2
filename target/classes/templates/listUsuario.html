@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="UTF-8"></meta>
+		<title>Usuarios</title>
+		
+		<script type="text/javascript"
+				src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div> <!-- th:replace para usar la misma cabecera en todas las paginas-->
+    	<div class="container">
+    		<form id="myform">
+    			<div class="row clearfix">
+    				<div class="col-md-12 column">
+    					
+    					<a 	style="border-bottom-color: green" th:href="@{/usuario/irRegistrar}"
+    						id="add-row" type="button" class="btn btn-primary btn-md left-block">
+    						<span class="glyphicon glyphicon-plus"></span> Usuario
+    					</a>
+    					
+						<a 	style="border-bottom-color: green" th:href="@{/usuario/irBuscar}"
+    						id="add-row" type="button" class="btn btn-primary btn-md left-block">
+    						<span class="glyphicon glyphicon-search"></span> Buscar
+    					</a>
+    					
+    					<table class="table table-bordered table-hover table-striped" id="tab_logic">
+    						<thead>
+    							<tr>
+    								<th class="text-center">CODIGO</th>
+    								<th class="text-center">USUARIO</th>
+    								<th class="text-center">DNI</th>
+    								<th class="text-center">EMAIL</th>
+    								<th class="text-center">PUNTOS</th>
+    								<th class="text-center">OPERACION</th>
+    								<th class="text-center">OPERACION</th>
+    							</tr>
+    						</thead>   <!-- LAS VARIABLES DE MEMORIA SE REFERENCIASN CON EL ${}-->
+    						<tbody>
+    							<tr th:each="usu: ${listaUsuarios}">   <!-- th:each es un for, itera o repite varias las filas hasta las necesarias de listaRazas-->
+    								<td th:text="${usu.CUsuario}"></td>
+    								<td th:text="${usu.NUsuario}"></td>
+    								<td th:text="${usu.NDNI}"></td>
+    								<td th:text="${usu.NEmail}"></td>
+    								<td th:text="${usu.QPuntos}"></td>
+    								<td><a th:href="@{/usuario/eliminar?id=}+${usu.CUsuario}">Eliminar</a></td>    								
+    								<td><a th:href="@{'/usuario/modificar/'}+${usu.CUsuario}">Modificar</a></td>
+    							</tr>
+    						</tbody>
+    					</table> 
+    					
+    				</div>
+    				
+    				<div class="container">
+    		<form id="myform">
+    			<div class="row clearfix">
+    				<div class="col-md-12 column" align="center">
+    					<img th:src="@{/imagenes/icon_user.png}" width="300" height="300" alt="logo" align="middle">
+    					</img>
+    				</div>
+    			</div>
+    		</form>
+    	</div>
+    				
+    			</div>
+    			<div th:if="${mensaje}" class="alert alert-danger">
+    				<p th:text="${mensaje}"></p>
+    			</div>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

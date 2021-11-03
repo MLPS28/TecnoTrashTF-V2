@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>Reporte</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/distrito.js}"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container">											<!-- pet es una variable de memoria por el ${} -->
+    		<form th:action="@{/reporte/registrar}" method="post" th:object="${reporte}"> <!-- el @{} para colocar enlaces,para direccionar, a algún lado, se ejecuta la ccion cuando se hace click en un botón de tiop submit -->
+    			<div class="form-group">
+    				<label for="idreporte">ID DEL REPORTE:</label>
+    				<input type="text" class="form-control" th:field="*{CReporte}"></input> <!-- *{} es varaible de memoria DEPENDIENTE de alguien que se creo previamente, osea de pet -->
+    				
+    				<div class="form-group">
+    					<label for="descripcion">DESCRIPCION DE LO OCURRIDO:</label>
+    					<input type="text" class="form-control" th:field="*{TDescripcion}" id="descripcion"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('TDescripcion')}"
+								th:errors="*{TDescripcion}"> <!-- si detecta error asociado a la CAja NamePet, muestra un mensaje de error, SOLO si hay error -->
+						</div>
+    					
+    				</div>
+    								
+    				<div class="form-group">
+    					<label for="nombre">FECHA DEL REPORTE:</label>
+    					<input type="date" class="form-control" th:field="*{DFecha}" id="fechaReporte"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('DFecha')}" 
+								th:errors="*{DFecha}">
+						</div>
+    				</div>
+    			    				
+    				<div class="form-group">
+    					<label for="nombre">USUARIO:</label>
+    					<select class="form-control" th:field="*{usuario.CUsuario}">   <!-- toma valores definidos por Options -->
+    						<option th:each="d: ${listaUsuarios}"  
+    								th:value="${d.CUsuario}"
+    								th:text="${d.NUsuario}"
+    								th:selected="(${d.CUsuario} == *{usuario.CUsuario})"> <!-- El selected te solecciona uno por default -->
+    						</option>   <!-- se tiene que iterar las veces necesarias definidas por listaRazas, cada elemento iterado se almacena en "r", value significa
+    						que el valor que se almacena es el "id", pero lo que se meustra es el texto del nombre de la Raza, el valor por default será el primer elemento, pero cuando
+    						modifico es cuando sale seleccionado el valor -->
+    						<!-- lo que te aparece en la lista == el id del objeto que stoy modificando ya se tiene algo grabado -->
+    					</select>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="direccion">DIRECCION:</label>
+    					<select class="form-control" th:field="*{direccion.CDireccion}">
+    						<option th:each="t: ${listaDirecciones}"
+    								th:value="${t.CDireccion}"
+    								th:text="${t.NDireccion}"
+    								th:selected="(${t.CDireccion} == *{direccion.CDireccion})">
+    						</option>
+    					</select>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="puntos">PUNTOS A GANAR POR REPORTE:</label>
+    					<input type="number" class="form-control" th:field="*{QPuntosReporte}" id="puntos"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('QPuntosReporte')}"
+								th:errors="*{QPuntosReporte}"> <!-- si detecta error asociado a la CAja NamePet, muestra un mensaje de error, SOLO si hay error -->
+						</div>
+    					
+    				</div>  
+    				
+    			</div>
+    			<button type="submit" class="btn btn-primary">Aceptar</button>
+    			<a href="/reporte/listar" class="btn btn-danger">Cancelar</a>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

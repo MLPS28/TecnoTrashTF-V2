@@ -1,0 +1,113 @@
+    .content-home > div {
+        padding: 2rem 0;
+    }
+
+        .content-home__description {
+            width: 20rem;
+            margin: 0 auto 2rem auto;
+        }
+
+            .content-home__description > h3 {
+                text-align: center;
+                font-size: 1.1rem;
+                padding: 0 0.7rem;
+                margin-bottom: 1.5rem;
+            }
+        
+            .content-home__description > div {
+                background: rgb(42, 87, 107);
+                display: flex;
+                padding: 0.4rem 0;
+            }
+
+                .content-home__description > div > a {
+                    width: 100%;
+                    text-align: center;
+                    text-decoration: none;
+                    color: #fff;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+
+        .content-home > div > span {
+            margin-left: 10rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .content-home__history {
+            margin: 2rem auto;
+            position: relative;
+            width: 45rem;
+            padding-top: 1rem;
+            border-top: 1px solid #3c3c3c;
+        }
+
+            .content-home__history > div {
+                overflow-x: scroll;
+            }
+
+                .content-home__history > div > ul {
+                    width: max-content;
+                    display: flex;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    list-style: none;
+                }
+
+                    .content-home__history > div > ul > li {
+                        width: 13rem;
+                        margin: 0 0.8rem 1.4rem 0.8rem;
+                    }
+
+                        .content-home__history > div > ul > li > figure {
+                            width: 100%;
+                            height: 15rem;
+                        }
+
+                            .content-home__history > div > ul > li > figure > img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+
+                        .content-home__history > div > ul > li > h3 {
+                            color: #495791;
+                            font-weight: 600;
+                            margin: 1rem 0;
+                            text-align: center;
+                        }
+
+                        .content-home__history > div > ul > li > p {
+                            text-align: center;
+                        }
+
+            .content-home__history__arrow-left, .content-home__history__arrow-right {
+                position: absolute;
+                top: 45%;
+            }
+            
+                .content-home__history__arrow-left > img , .content-home__history__arrow-right > img {
+                    background: rgb(197, 197, 197);
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    object-fit: contain;
+                    padding: 0.3rem;
+                    border-radius: 50%;
+                    transition: 0.4s all;
+                    cursor: pointer;
+                }
+
+                .content-home__history__arrow-left > img:hover, .content-home__history__arrow-right > img:hover {
+                    background: rgb(146, 146, 146);
+                }
+
+            .content-home__history__arrow-left {
+                transform: rotate(90deg);
+                left: 0;
+            }
+
+            .content-home__history__arrow-right {
+                transform: rotate(-90deg);
+                right: 0;
+            }

@@ -1,0 +1,53 @@
+.content-prize {
+
+}
+
+    .content-prize > div {
+        padding: 5rem 0;
+    }
+
+        .content-prize > div > ul {
+            width: 51rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+        }
+
+            .content-prize > div > ul > li {
+                width: 23%;
+                user-select: none;
+            }
+
+                .content-prize > div > ul > li > figure {
+                    width: 100%;
+                    height: 12rem;
+                }
+
+                    .content-prize > div > ul > li > figure > img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                    
+                .content-prize > div > ul > li > p {
+                    font-weight: 600;
+                    font-size: 0.8rem;
+                    text-align: center;
+                    padding: 0 0.5rem;
+                    margin: 1rem 0;
+                }
+
+                .content-prize > div > ul > li > div {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                    .content-prize > div > ul > li > div > p {
+                        background: rgb(69, 128, 155);
+                        padding: 0.5rem 1.2rem;
+                        font-weight: 600;
+                        color: #fff;
+                        border-radius: 0.4rem;
+                        cursor: pointer;
+                    }

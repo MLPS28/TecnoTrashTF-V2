@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>Distrito</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/distrito.js}"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container">
+    		<form th:action="@{/distrito/registrar}" method="post" th:object="${distrito}">
+    			<div class="form-group">
+    				<label for="cdistrito">CODIGO DEL Distrito:</label>
+    				<input type="text" class="form-control" th:field="*{CDistrito}"></input>
+    				
+    				<div class="form-group">
+    					<label for="nombre">DISTRITO:</label>
+    					<input type="text" class="form-control" th:field="*{NDistrito}" id="nombre"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('NDistrito')}" 
+								th:errors="*{NDistrito}">
+						</div>
+    					
+    				</div>
+    				
+    			</div>
+    			<button type="submit" class="btn btn-primary">Aceptar</button>
+    			<a href="/distrito/listar" class="btn btn-danger">Cancelar</a>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

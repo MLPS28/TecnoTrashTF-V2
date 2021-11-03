@@ -1,0 +1,59 @@
+.content-report {
+
+}
+
+    .content-report > div {
+        width: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2.5rem auto;
+    }
+    
+        .content-report__search {
+            width: 16rem;
+            height: 16rem;
+            margin-right: 3rem;
+        }
+
+            .content-report__search > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+        .content-report > div > div {
+            
+        }
+
+            .content-report > div > div > div {
+                margin-bottom: 1rem;
+            }
+                .content-report__field-distrito {
+                    font-size: 1.5rem;
+                    color: rgb(37, 62, 116);
+                }
+
+                .content-report > div > div > div > p {
+                    margin-bottom: 0.5rem;
+                }
+                
+                .content-report > div > div > div > input {
+                    width: 100%;
+                    padding: 0.3rem 0.5rem;
+                    border-radius: 0.4rem;
+                    outline: none;
+                    border: 1px solid rgb(123, 123, 123);
+                }
+                
+    .content-report__map {
+        width: 28rem;
+        height: 18rem;
+        margin: 1.5rem auto 2.5rem auto;
+        cursor: pointer;
+    }
+
+        .content-report__map > img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }

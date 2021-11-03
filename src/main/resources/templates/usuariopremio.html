@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>Usuario Premio</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/distrito.js}"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container">											<!-- pet es una variable de memoria por el ${} -->
+    		<form th:action="@{/usuariopremio/registrar}" method="post" th:object="${usuariopremio}"> <!-- el @{} para colocar enlaces,para direccionar, a algún lado, se ejecuta la ccion cuando se hace click en un botón de tiop submit -->
+    			<div class="form-group">
+    				<label for="idusuariopremio">ID:</label>
+    				<input type="text" class="form-control" th:field="*{CUsuarioPremio}"></input> <!-- *{} es varaible de memoria DEPENDIENTE de alguien que se creo previamente, osea de pet -->
+    				
+    				<div class="form-group">
+    					<label for="nombre">USUARIO:</label>
+    					<select class="form-control" th:field="*{usuario.CUsuario}">
+    						<option th:each="u: ${listaUsuarios}"
+    								th:value="${u.CUsuario}"
+    								th:text="${u.NUsuario}"
+    								th:selected="(${u.CUsuario} == *{usuario.CUsuario})">
+    						</option>
+    					</select>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="nombre">PREMIO A RECIBIR:</label>
+    					<select class="form-control" th:field="*{premio.CPremio}">   <!-- toma valores definidos por Options -->
+    						<option th:each="p: ${listaPremios}"  
+    								th:value="${p.CPremio}"
+    								th:text="${p.NPremio}"
+    								th:selected="(${p.CPremio} == *{premio.CPremio})"> <!-- El selected te solecciona uno por default -->
+    						</option>   <!-- se tiene que iterar las veces necesarias definidas por listaRazas, cada elemento iterado se almacena en "r", value significa
+    						que el valor que se almacena es el "id", pero lo que se meustra es el texto del nombre de la Raza, el valor por default será el primer elemento, pero cuando
+    						modifico es cuando sale seleccionado el valor -->
+    						<!-- lo que te aparece en la lista == el id del objeto que stoy modificando ya se tiene algo grabado -->
+    					</select>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="fecha">FECHA DE PREMIO GANADO:</label>
+    					<input type="date" class="form-control" th:field="*{DFecha}" id="DFecha"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('DFecha')}" 
+								th:errors="*{DFecha}">
+						</div>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="reportes">REPORTES ACTUALES:</label>
+    					<input type="number" class="form-control" th:field="*{QReporte}" id="QReporte"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('QReporte')}" 
+								th:errors="*{QReporte}">
+						</div>
+    				</div>
+    				
+    				
+    				
+    				
+    			</div>
+    			<button type="submit" class="btn btn-primary">Aceptar</button>
+    			<a href="/usuariopremio/listar" class="btn btn-danger">Cancelar</a>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

@@ -1,0 +1,116 @@
+@import 'login.css';
+@import 'home.css';
+@import 'report.css';
+@import 'register.css';
+@import 'prize.css';
+@import 'about.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-login, .content-home, .content-report, .content-register, .content-prize, .content-about {
+    width: 100%;
+    height: 100vh;
+}
+
+    .menu-tecno-trash {
+        position: relative;
+        width: 100%;
+        height: 9rem;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .menu-tecno-trash > figure {
+            width: 100%;
+            height: 100%;
+        }
+
+            .menu-tecno-trash > figure > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .menu-tecno-trash > h2 {
+            position: absolute;
+            top: 4rem;
+            left: 45%;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .menu-tecno-trash > ul {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            list-style: none;
+        }
+        
+            .menu-tecno-trash > ul > li {
+                margin: 0 0.1rem;
+                list-style: none;
+                font-size: 0.8rem;
+                border-radius: 0.2rem;
+                cursor: pointer;
+                transition: 0.3s all;
+            }
+            
+            .menu-tecno-trash > ul > li:hover {
+                background: rgba(197, 197, 197, 0.193);
+            }
+
+                .menu-tecno-trash > ul > li > a {
+                    text-decoration: none;
+                    font-weight: 600;
+                    padding: 0.6rem 0.4rem;
+                }
+
+                .menu-option--select {
+                    color: #fff;
+                }
+
+                .menu-option--deselect {
+                    color: rgb(214, 214, 214);
+                }
+
+    .footer-tecno-trash {
+        background: rgb(69, 128, 155);
+        display: flex;
+        justify-content: center;
+    }
+
+        .footer-tecno-trash > p {
+            padding: 1rem 0 1.2rem 0;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+@media (min-width: 1250px) {
+        .menu-tecno-trash > h2 {
+            font-size: 2.3rem;
+        }
+        
+        .menu-tecno-trash > ul {
+            right: 1.5rem;
+        }
+        
+            .menu-tecno-trash > ul > li {
+                margin: 0 0.1rem;
+                padding: 1rem 0.6rem;
+                font-weight: 600;
+            }   
+}
+
+@media(max-width: 110px) {
+    .content-login, .content-home, .content-report, .content-register, .content-prize, .content-about {
+        width: 110px;
+    }
+}

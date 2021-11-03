@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8"></meta>
+		<script type="text/javascript"
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+			</script>
+	<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+	<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+		<script src="//code.jquery.com/jquery-1.11.1.min.js">
+		</script>
+		<link rel="stylesheet" href="../static/css/index.css" />
+</head>
+
+<body>
+	 <main class="content-login">
+        <div class="content-login__description">
+            <div class="content-login__description__logo">
+                <figure>
+                    <img src="../static/imagenes/logo.png" alt="tecno trash"/>
+                </figure>
+            </div>
+            <div class="content-login__description__form">
+                <h3>Iniciar Sesion</h3>
+                <div class="content-login__description__form__data">
+                    <div>
+                        <p>Usuario</p>
+                        <div>
+                            <figure>
+                                <img src="../static/imagenes/icon_user.png" alt="user"/>
+                            </figure>
+                            <input type="email" placeholder="Ingrese usuario"/>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Contraseña</p>
+                        <div>
+                            <figure>
+                                <img src="../static/imagenes/icon_password.png" alt="password"/>
+                            </figure>
+                            <input type="password" placeholder="••••••••"/>
+                        </div>
+                    </div>
+                </div>
+                <span>
+                    <a 	style="border-bottom-color: red" th:href="@{/usuario/bienvenido}"
+    						id="add-row" type="button" class="btn btn-primary btn-block">Ingresar
+    					</a>
+                </span>
+                <div class="content-login__description__form__register">
+                    <a 	style="border-bottom-color: red" th:href="@{/usuario/irRegistrar}"
+    						id="add-row" type="button" class="btn btn-primary btn-block">
+    						Registrar
+    					</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
