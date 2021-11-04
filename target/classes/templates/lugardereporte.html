@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>LugarDeReporte</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/distrito.js}"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container">											<!-- pet es una variable de memoria por el ${} -->
+    		<form th:action="@{/lugardereporte/registrar}" method="post" th:object="${lugardereporte}"> <!-- el @{} para colocar enlaces,para direccionar, a algún lado, se ejecuta la ccion cuando se hace click en un botón de tiop submit -->
+    			<div class="form-group">
+    				<label for="iddireccion">ID:</label>
+    				<input type="text" class="form-control" th:field="*{CDireccion}"></input> <!-- *{} es varaible de memoria DEPENDIENTE de alguien que se creo previamente, osea de pet -->
+    				
+    				<div class="form-group">
+    					<label for="nombre">DIRECCION:</label>
+    					<input type="text" class="form-control" th:field="*{NDireccion}" id="nombre"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('NDireccion')}"
+								th:errors="*{NDireccion}"> <!-- si detecta error asociado a la CAja NamePet, muestra un mensaje de error, SOLO si hay error -->
+						</div>
+    					
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="nombre">NUMERO DE LA CALLE:</label>
+    					<input type="number" class="form-control" th:field="*{NumDireccion}" id="numero"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('NumDireccion')}"
+								th:errors="*{NumDireccion}"> <!-- si detecta error asociado a la CAja NamePet, muestra un mensaje de error, SOLO si hay error -->
+						</div>
+    					
+    				</div>    				
+    				
+    			    				
+    				<div class="form-group">
+    					<label for="nombre">DISTRITO:</label>
+    					<select class="form-control" th:field="*{distrito.CDistrito}">   <!-- toma valores definidos por Options -->
+    						<option th:each="d: ${listaDistritos}"  
+    								th:value="${d.CDistrito}"
+    								th:text="${d.NDistrito}"
+    								th:selected="(${d.CDistrito} == *{distrito.CDistrito})"> <!-- El selected te solecciona uno por default -->
+    						</option>   <!-- se tiene que iterar las veces necesarias definidas por listaRazas, cada elemento iterado se almacena en "r", value significa
+    						que el valor que se almacena es el "id", pero lo que se meustra es el texto del nombre de la Raza, el valor por default será el primer elemento, pero cuando
+    						modifico es cuando sale seleccionado el valor -->
+    						<!-- lo que te aparece en la lista == el id del objeto que stoy modificando ya se tiene algo grabado -->
+    					</select>
+    				</div>
+    				
+    				<div class="form-group">
+    					<label for="nombre">TIPO DE VIA:</label>
+    					<select class="form-control" th:field="*{tipovia.CTipoVia}">
+    						<option th:each="t: ${listaTiposVias}"
+    								th:value="${t.CTipoVia}"
+    								th:text="${t.NTipoVia}"
+    								th:selected="(${t.CTipoVia} == *{tipovia.CTipoVia})">
+    						</option>
+    					</select>
+    				</div>
+    				
+    			</div>
+    			<button type="submit" class="btn btn-primary">Aceptar</button>
+    			<a href="/lugardereporte/listar" class="btn btn-danger">Cancelar</a>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>

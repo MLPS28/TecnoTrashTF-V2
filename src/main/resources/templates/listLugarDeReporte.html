@@ -4,7 +4,7 @@
 	<head>
 	
 		<meta charset="UTF-8"></meta>
-		<title>Reportes</title>
+		<title>LugaresDeReportes</title>
 		
 		<script type="text/javascript"
 				src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
@@ -30,12 +30,12 @@
     			<div class="row clearfix">
     				<div class="col-md-12 column">
     					
-    					<a 	style="border-bottom-color: green" th:href="@{/reporte/irRegistrar}"
+    					<a 	style="border-bottom-color: green" th:href="@{/lugardereporte/irRegistrar}"
     						id="add-row" type="button" class="btn btn-primary btn-md left-block">
-    						<span class="glyphicon glyphicon-plus"></span> Reporte
+    						<span class="glyphicon glyphicon-plus"></span> LugarDeReporte
     					</a>
     					
-						<a 	style="border-bottom-color: green" th:href="@{/reporte/irBuscar}"
+						<a 	style="border-bottom-color: green" th:href="@{/lugardereporte/irBuscar}"
     						id="add-row" type="button" class="btn btn-primary btn-md left-block">
     						<span class="glyphicon glyphicon-search"></span> Buscar
     					</a>
@@ -44,48 +44,28 @@
     						<thead>
     							<tr>
     								<th class="text-center">CODIGO</th>
-    								<th class="text-center">DESCRIPCION</th>
-    								<th class="text-center">FECHA DEL REPORTE</th>
-    								<th class="text-center">USUARIO</th>
-    								<th class="text-center">DIRECCION DEL LUGAR A REPORTAR</th>
-    								<th class="text-center">PUNTOS GANADOS</th>
+    								<th class="text-center">DIRECCION</th>
+    								<th class="text-center">NUMERO CALLE</th>
+    								<th class="text-center">DISTRITO</th>
+    								<th class="text-center">TIPO DE VIA</th>
     								<th class="text-center">OPERACION</th>
     								<th class="text-center">OPERACION</th>
     							</tr>
     						</thead>
     						<tbody>
-    							<tr th:each="r: ${listaReportes}">   <!-- th:each es un for-->
-    								<td th:text="${r.CReporte}"></td>
-    								<td th:text="${r.TDescripcion}"></td>
-    								<td th:text="${r.DFecha}"></td>
-    								<td th:text="${r.usuario.NUsuario}"></td>
-    								<td th:text="${r.lugardereporte.NDireccion}"></td>
-    								<td th:text="${r.QPuntosReporte}"></td>
-    								<td><a th:href="@{/reporte/eliminar?id=}+${r.CReporte}">Eliminar</a></td>    								
-    								<td><a th:href="@{'/reporte/modificar/'}+${r.CReporte}">Modificar</a></td>
+    							<tr th:each="d: ${listaDirecciones}">   <!-- th:each es un for-->
+    								<td th:text="${d.CDireccion}"></td>
+    								<td th:text="${d.NDireccion}"></td>
+    								<td th:text="${d.NumDireccion}"></td>
+    								<td th:text="${d.distrito.NDistrito}"></td>
+    								<td th:text="${d.tipovia.NTipoVia}"></td>
+    								<td><a th:href="@{/lugardereporte/eliminar?id=}+${d.CDireccion}">Eliminar</a></td>    								
+    								<td><a th:href="@{'/lugardereporte/modificar/'}+${d.CDireccion}">Modificar</a></td>
     							</tr>
     						</tbody>
     					</table> 
     					
     				</div>
-    				
-    					
-    					
-    	
-    	<div class="container">
-    		<form id="myform">
-    			<div class="row clearfix">
-    				<div class="col-md-12 column" align="center">
-    					<img th:src="@{/imagenes/historia03.PNG}" width="400" height="400" alt="logo" align="middle">
-    					</img>
-    				</div>
-    			</div>
-    		</form>
-    	</div>
-    	
-	
-    					
-    					
     			</div>
     			<div th:if="${mensaje}" class="alert alert-danger">
     				<p th:text="${mensaje}"></p>
