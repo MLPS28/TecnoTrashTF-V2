@@ -47,7 +47,7 @@
     								<th class="text-center">DESCRIPCION</th>
     								<th class="text-center">FECHA DEL REPORTE</th>
     								<th class="text-center">USUARIO</th>
-    								<th class="text-center">DIRECCION</th>
+    								<th class="text-center">DIRECCION DEL LUGAR A REPORTAR</th>
     								<th class="text-center">PUNTOS GANADOS</th>
     								<th class="text-center">OPERACION</th>
     								<th class="text-center">OPERACION</th>
@@ -59,7 +59,7 @@
     								<td th:text="${r.TDescripcion}"></td>
     								<td th:text="${r.DFecha}"></td>
     								<td th:text="${r.usuario.NUsuario}"></td>
-    								<td th:text="${r.direccion.NDireccion}"></td>
+    								<td th:text="${r.lugardereporte.NDireccion}"></td>
     								<td th:text="${r.QPuntosReporte}"></td>
     								<td><a th:href="@{/reporte/eliminar?id=}+${r.CReporte}">Eliminar</a></td>    								
     								<td><a th:href="@{'/reporte/modificar/'}+${r.CReporte}">Modificar</a></td>
