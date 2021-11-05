@@ -62,12 +62,12 @@
     				</div>
     				
     				<div class="form-group">
-    					<label for="direccion">DIRECCION:</label>
-    					<select class="form-control" th:field="*{direccion.CDireccion}">
+    					<label for="lugardereporte">DIRECCION:</label>
+    					<select class="form-control" th:field="*{lugardereporte.CDireccion}">
     						<option th:each="t: ${listaDirecciones}"
     								th:value="${t.CDireccion}"
     								th:text="${t.NDireccion}"
-    								th:selected="(${t.CDireccion} == *{direccion.CDireccion})">
+    								th:selected="(${t.CDireccion} == *{lugardereporte.CDireccion})">
     						</option>
     					</select>
     				</div>
