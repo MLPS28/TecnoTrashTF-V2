@@ -12,12 +12,12 @@
     }
 
         .content-login__description__logo {
-            width: 25rem;
+            width: 30rem;
         }
 
             .content-login__description__logo > figure {
-                width: 10rem;
-                height: 11rem;
+                width: 20rem;
+                height: 21rem;
             }
 
                 .content-login__description__logo > figure {
@@ -27,7 +27,7 @@
                 }
 
         .content-login__description__form {
-            width: 16rem;
+            width: 14rem;
             padding: 1rem;
             border: 1px solid #a3a3a3;
             border-radius: 0.8rem;
