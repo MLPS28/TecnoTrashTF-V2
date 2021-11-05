@@ -13,13 +13,16 @@
 		</script>
 	</head>
 
+
 	<body>
 		<!-- th:fragment define un fragment los cuales sirven para evitar la redundancia de codigo -->
 		<!-- Sintaxis th:fragment="Nombre del fragment" -->
 		<div th:fragment="header">
 			<!-- this is header -->
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-inverse bg-inverse">
+			
 				<div class="container">
+				
 				<div class="container-fluid">
 						<a class="navbar-brand" th:href="@{/distrito/bienvenido}">TECNOTRASH</a>
 					</div>
