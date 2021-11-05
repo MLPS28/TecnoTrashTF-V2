@@ -30,6 +30,7 @@ public class Usuario implements Serializable {
 	
 	@Column(name="QPuntos", nullable=false)
 	private int QPuntos;
+	
 
 	public Usuario() {
 		super();
