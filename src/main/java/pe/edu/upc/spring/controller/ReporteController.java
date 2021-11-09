@@ -25,12 +25,10 @@ import pe.edu.upc.spring.service.IDireccionService;
 import pe.edu.upc.spring.service.IReporteService;
 
 @Controller
-
 @RequestMapping("/reporte")
 
 public class ReporteController {
-	@Autowired
-	private IUsuarioService uService;
+
 
 	@Autowired
 	private IDireccionService dService;
@@ -51,7 +49,6 @@ public class ReporteController {
 
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
-		model.addAttribute("listaUsuarios", uService.listar());
 		model.addAttribute("listaDirecciones", dService.listar());
 		model.addAttribute("usuario", new Usuario());
 		model.addAttribute("direccion", new Direccion());
@@ -65,7 +62,6 @@ public class ReporteController {
 	{
 		if (binRes.hasErrors())
 			{
-				model.addAttribute("listaUsuarios", uService.listar());
 				model.addAttribute("listaDirecciones", dService.listar());			
 				return "reporte";
 			}
@@ -92,7 +88,7 @@ public class ReporteController {
 		}
 		else 
 		{
-			model.addAttribute("listaUsuarios", uService.listar());
+			
 			model.addAttribute("listaDirecciones", dService.listar());						
 			if (objReporte.isPresent())
 				objReporte.ifPresent(o -> model.addAttribute("reporte", o)); //o: es el objpet
