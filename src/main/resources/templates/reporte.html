@@ -63,7 +63,7 @@
     				
     				<div class="form-group">
     					<label for="lugardereporte">DIRECCION:</label>
-    					<select class="form-control" th:field="*{lugardereporte.CDireccion}">
+    					<select class="form-control" th:field="*{direccion.CDireccion}">
     						<option th:each="t: ${listaDirecciones}"
     								th:value="${t.CDireccion}"
     								th:text="${t.NDireccion}"
