@@ -17,10 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sun.el.parser.ParseException;
 
 import pe.edu.upc.spring.model.Direccion;
-import pe.edu.upc.spring.model.Distrito;
 import pe.edu.upc.spring.model.Reporte;
 import pe.edu.upc.spring.service.IDireccionService;
-import pe.edu.upc.spring.service.IDistritoService;
 import pe.edu.upc.spring.service.IReporteService;
 
 @Controller
