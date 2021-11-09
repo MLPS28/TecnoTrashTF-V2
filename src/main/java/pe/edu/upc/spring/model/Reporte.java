@@ -38,9 +38,6 @@ public class Reporte implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date DFecha;
 	
-	@ManyToOne
-	@JoinColumn(name="CUsuario", nullable=false)
-	private Usuario usuario;
 	
 	@ManyToOne
 	@JoinColumn(name="CDireccion", nullable=false)
@@ -51,14 +48,13 @@ public class Reporte implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reporte(int cReporte, String tDescripcion, int qPuntosReporte, Date dFecha, Usuario usuario,
+	public Reporte(int cReporte, String tDescripcion, int qPuntosReporte, Date dFecha,
 			Direccion direccion) {
 		super();
 		CReporte = cReporte;
 		TDescripcion = tDescripcion;
 		QPuntosReporte = qPuntosReporte;
 		DFecha = dFecha;
-		this.usuario = usuario;
 		this.direccion = direccion;
 	}
 
@@ -93,15 +89,6 @@ public class Reporte implements Serializable {
 	public void setDFecha(Date dFecha) {
 		DFecha = dFecha;
 	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	public Direccion getDireccion() {
 		return direccion;
 	}
