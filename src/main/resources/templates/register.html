@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tecno Trash</title>
+    <link rel="stylesheet" href="../resources/static/css/index.css" />
+</head>
+<body>
+    <main class="content-register">
+        <header class="menu-tecno-trash">
+            <figure>
+                <img src="." alt=""/>
+            </figure>
+            <h2>Registro</h2>
+            <ul>
+                <li><a class="menu-option--deselect" href="index.xhtml">Login</a></li>
+            </ul>
+        </header>
+
+        <div>
+            <div class="content-register__form">
+                <div class="content-register__form__fields">
+                    <p>Nombres:</p>
+                    <input type="text" placeholder="Ingrese nombres" value="#{usuarioController.usuario.NUsuario}"/>
+                </div>
+                <div class="content-register__form__fields">
+                    <p>Apellido Paterno:</p>
+                    <input type="text" placeholder="Ingrese el apellido paterno" value="#{usuarioController.usuario.NUsuarioAP}"/>
+                </div>
+                <div class="content-register__form__fields">
+                    <p>Apellido Materno:</p>
+                    <input type="text" placeholder="Ingrese el apellido materno" value="#{usuarioController.usuario.NUsuarioAM}"/>
+                </div>
+                
+           
+                <div class="content-register__form__fields">
+                    <p>DNI:</p>
+                    <input type="text" placeholder="Ingrese DNI" value="#{usuarioController.usuario.NDNI}"/>/>
+                </div>
+                <div class="content-register__form__fields">
+                    <p>Correo:</p>
+                    <input type="email" placeholder="Ingrese correo" value="#{usuarioController.usuario.NEmail}"/> />
+                </div>
+                <div class="content-register__form__fields">
+                    <p>Contraseña:</p>
+                    <input type="password" placeholder="•••••••••" value="#{usuarioController.usuario.NPassword}"/>/>
+                </div>
+                
+                <div class="content-register__form__radio-buttons">
+                    <p>¿Cómo escucho de nosotros?</p>
+
+                    <div>
+                        <input type="radio" id="facebook" name="grupo-interes" />
+                        <label for="facebook">Facebook</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="amigos" name="grupo-interes" />
+                        <label for="amigos">Amigos</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="otros" name="grupo-interes" />
+                        <label for="otros">Otros</label>
+                    </div>
+
+                    <input type="text" placeholder="Otros" />
+                </div>
+            </div>
+
+            <div class="content-register__button">
+                <a href="home.xhtml" onclick="#{usuarioController.insertar()}"> Registrar</a>
+                
+            </div>
+        </div>
+
+        <footer class="footer-tecno-trash">
+            <p>2021 - TecnoTrash</p>
+        </footer>
+    </main>
+</body>
+</html>
