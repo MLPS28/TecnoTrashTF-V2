@@ -30,7 +30,7 @@ public class ReporteController {
 
 
 	@Autowired
-	private IDistritoService dService;
+	private IDireccionService dService;
 
 	@Autowired
 	private IReporteService rService;	
@@ -48,9 +48,9 @@ public class ReporteController {
 
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
-		model.addAttribute("listaDistritos", dService.listar());
+		model.addAttribute("listaDirecciones", dService.listar());
 		model.addAttribute("reporte", new Reporte());
-		model.addAttribute("distrito", new Distrito());
+		model.addAttribute("direccion", new Direccion());
 		
 		return "reporte"; 
 	}
