@@ -16,10 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sun.el.parser.ParseException;
 
-import pe.edu.upc.spring.model.Usuario;
 import pe.edu.upc.spring.model.Direccion;
+import pe.edu.upc.spring.model.Distrito;
 import pe.edu.upc.spring.model.Reporte;
-
+import pe.edu.upc.spring.service.IDireccionService;
 import pe.edu.upc.spring.service.IDistritoService;
 import pe.edu.upc.spring.service.IReporteService;
 
@@ -48,34 +48,22 @@ public class ReporteController {
 
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
+		model.addAttribute("listaDistritos", dService.listar());
 		model.addAttribute("reporte", new Reporte());
-		model.addAttribute("listaDis", dService.listar());
-		model.addAttribute("usuario", new Usuario());
-		model.addAttribute("direccion", new Direccion());
+		model.addAttribute("distrito", new Distrito());
 		
-		return "reporte"; // "pet" es una pagina del frontEnd para insertar y/o modificar
+		return "reporte"; 
 	}
 
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute Reporte objReporte, BindingResult binRes, Model model) 
 		throws ParseException
 	{
-		/*if (binRes.hasErrors())
-			{
-				model.addAttribute("listaDirecciones", dService.listar());			
-				return "reporte";
-			}
-		else {
-			boolean flag = rService.grabar(objReporte);
-			if (flag)
-				return "redirect:/reporte/listar";
-			else {
-				model.addAttribute("mensaje", "Ocurrio un problema");
-				return "redirect:/reporte/irRegistrar";
-			}
-		}*/
 		if (binRes.hasErrors())
+			{
+			model.addAttribute("listaDirecciones", dService.listar());			
 			return "reporte";
+			}
 		else {
 			boolean flag = rService.grabar(objReporte);
 			if (flag)
