@@ -16,21 +16,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sun.el.parser.ParseException;
 
-import pe.edu.upc.spring.model.Usuario;
 import pe.edu.upc.spring.model.Direccion;
 import pe.edu.upc.spring.model.Reporte;
-
-import pe.edu.upc.spring.service.IUsuarioService;
 import pe.edu.upc.spring.service.IDireccionService;
 import pe.edu.upc.spring.service.IReporteService;
 
 @Controller
-
 @RequestMapping("/reporte")
 
 public class ReporteController {
-	@Autowired
-	private IUsuarioService uService;
+
 
 	@Autowired
 	private IDireccionService dService;
@@ -46,17 +41,16 @@ public class ReporteController {
 	@RequestMapping("/")
 	public String irPaginaListadoReportes(Map<String, Object> model) {
 		model.put("listaReportes", rService.listar());
-		return "listReporte"; // "listPet" es una pagina del frontEnd para listar
+		return "listReporte"; // 
 	}
 
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
-		model.addAttribute("listaUsuarios", uService.listar());
 		model.addAttribute("listaDirecciones", dService.listar());
-		model.addAttribute("usuario", new Usuario());
-		model.addAttribute("direccion", new Direccion());
 		model.addAttribute("reporte", new Reporte());
-		return "reporte"; // "pet" es una pagina del frontEnd para insertar y/o modificar
+		model.addAttribute("direccion", new Direccion());
+		
+		return "reporte"; 
 	}
 
 	@RequestMapping("/registrar")
@@ -65,9 +59,8 @@ public class ReporteController {
 	{
 		if (binRes.hasErrors())
 			{
-				model.addAttribute("listaUsuarios", uService.listar());
-				model.addAttribute("listaDirecciones", dService.listar());			
-				return "reporte";
+			model.addAttribute("listaDirecciones", dService.listar());			
+			return "reporte";
 			}
 		else {
 			boolean flag = rService.grabar(objReporte);
@@ -92,8 +85,8 @@ public class ReporteController {
 		}
 		else 
 		{
-			model.addAttribute("listaUsuarios", uService.listar());
-			model.addAttribute("listaDirecciones", dService.listar());						
+			
+			model.addAttribute("listaReportes", rService.listar());						
 			if (objReporte.isPresent())
 				objReporte.ifPresent(o -> model.addAttribute("reporte", o)); //o: es el objpet
 			return "reporte";
@@ -132,7 +125,7 @@ public class ReporteController {
 		return "listReporte";
 	}	
 
-	@RequestMapping("/irBuscar")
+	@RequestMapping("/buscar")
 	public String irBuscar(Model model) 
 	{
 		model.addAttribute("reporte", new Reporte());

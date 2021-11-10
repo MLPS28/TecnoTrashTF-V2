@@ -11,11 +11,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import pe.edu.upc.spring.model.Users;
 import pe.edu.upc.spring.model.Role;
 import pe.edu.upc.spring.repository.IUsuarioRepository;
 
+@Service
 public class JpaUserDetailsService implements UserDetailsService {
 
 	@Autowired
