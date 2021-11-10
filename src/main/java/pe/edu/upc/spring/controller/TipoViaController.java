@@ -26,13 +26,13 @@ public class TipoViaController {
 	
 	@RequestMapping("/bienvenido")
 	public String irPaginaBienvenida() {
-		return "bienvenido"; // "bienvenido" es una pagina del frontEnd, pagina de Inicio
+		return "bienvenido"; // "bienvenido" frontEnd, pagina de Inicio
 	}
 	
 	@RequestMapping("/")
 	public String irPaginaListadoTiposVias(Map<String, Object> model) {
 		model.put("listaTiposVias", tService.listar());
-		return "listTipoVia"; // "listRace" es una pagina del frontEnd para listar
+		return "listTipoVia"; // "listRace" frontEnd para listar
 	}
 
 	@RequestMapping("/irRegistrar")
